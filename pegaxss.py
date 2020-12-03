@@ -27,7 +27,7 @@ ASCII=r"""
                   o_|   /        /      ______)         \  \\\\    \\\\\\\
                        |  ._    (      ______)           \  \\\\\\\\\\\\\\\\
                        | /       `----------'    /       /     \\\\\\\
-   
+
                .______/\/     /                 /       /          \\\
               / __.____/    _/         ________(       /\
              / / / ________/`---------'         \     /  \_
@@ -42,39 +42,41 @@ ASCII=r"""
 .______    _______   _______      ___      ___   ___      _______.     _______.
 |   _  \  |   ____| /  _____|    /   \     \  \ /  /     /       |    /       |
 |  |_)  | |  |__   |  |  __     /  ^  \     \  V  /     |   (----`   |   (----`
-|   ___/  |   __|  |  | |_ |   /  /_\  \     >   <       \   \        \   \    
-|  |      |  |____ |  |__| |  /  _____  \   /  .  \  .----)   |   .----)   |   
-| _|      |_______| \______| /__/     \__\ /__/ \__\ |_______/    |_______/    
+|   ___/  |   __|  |  | |_ |   /  /_\  \     >   <       \   \        \   \
+|  |      |  |____ |  |__| |  /  _____  \   /  .  \  .----)   |   .----)   |
+| _|      |_______| \______| /__/     \__\ /__/ \__\ |_______/    |_______/
 
----------------------------------------------------------------------- 
+----------------------------------------------------------------------
+PEGAXSS - Magic Header Blind Xss Tool
+----------------------------------------------------------------------
 https://github.com/truffle-dog
 https://twitter.com/truffledog6
+----------------------------------------------------------------------
 Do you need kickass security tools? Or security consulting?
-Or just want to exchange ideas? 
+Or just want to exchange ideas?
 Contact me on twitter: @truffledog6 (twitter.com/truffledog6)
----------------------------------------------------------------------- 
-PEGAXSS - Magic Header Blind Xss Tool
----------------------------------------------------------------------- 
+----------------------------------------------------------------------
 """
 
-ASCII_MIN=r""" 
+ASCII_MIN=r"""
 ----------------------------------------------------------------------
 .______    _______   _______      ___      ___   ___      _______.     _______.
 |   _  \  |   ____| /  _____|    /   \     \  \ /  /     /       |    /       |
 |  |_)  | |  |__   |  |  __     /  ^  \     \  V  /     |   (----`   |   (----`
-|   ___/  |   __|  |  | |_ |   /  /_\  \     >   <       \   \        \   \    
-|  |      |  |____ |  |__| |  /  _____  \   /  .  \  .----)   |   .----)   |   
-| _|      |_______| \______| /__/     \__\ /__/ \__\ |_______/    |_______/    
+|   ___/  |   __|  |  | |_ |   /  /_\  \     >   <       \   \        \   \
+|  |      |  |____ |  |__| |  /  _____  \   /  .  \  .----)   |   .----)   |
+| _|      |_______| \______| /__/     \__\ /__/ \__\ |_______/    |_______/
 
----------------------------------------------------------------------- 
+----------------------------------------------------------------------
+PEGAXSS - Magic Header Blind Xss Tool
+----------------------------------------------------------------------
 https://github.com/truffle-dog
 https://twitter.com/truffledog6
+----------------------------------------------------------------------
 Do you need kickass security tools? Or security consulting?
-Or just want to exchange ideas? 
+Or just want to exchange ideas?
 Contact me on twitter: @truffledog6 (twitter.com/truffledog6)
----------------------------------------------------------------------- 
-PEGAXSS - Magic Header Blind Xss Tool
----------------------------------------------------------------------- 
+----------------------------------------------------------------------
 """
 
 
@@ -85,9 +87,9 @@ DELAY_AFTER_PRINTING_INTRO_MSG=3
 
 DESCRIPTION="""
 ************************
-Description: 
+Description:
 ************************
-For each url make a number of requests equal to the number of payloads supplied multiplied by header rows supplied (if the headers are passid directly instead of a file then it counts as one row). During each request the specific payload is assigned to the headers in the header row. 
+For each url make a number of requests equal to the number of payloads supplied multiplied by header rows supplied (if the headers are passid directly instead of a file then it counts as one row). During each request the specific payload is assigned to the headers in the header row.
 
 For each URL:
   For each payload:
@@ -99,12 +101,12 @@ Example usage:
 ************************
 
 * for each url deliver payloads in the headers specified
-$ pegaxss.py urls.txt -p payloads.txt -H "Origin" 
+$ pegaxss.py urls.txt -p payloads.txt -H "Origin"
 
 * same as above but using stdin
 $ cat urls.txt | pegaxss.py -p payloads.txt -H "Origin"
 
-* for each url deliver payloads using header rows from file. Headers on each line should be separated by space, without quotes. 
+* for each url deliver payloads using header rows from file. Headers on each line should be separated by space, without quotes.
 
 $ pegaxss.py urls.txt -p payloads.txt -H headers.txt
 
@@ -118,8 +120,8 @@ Origin Referer
 $ pegaxss.py urls.txt -p payloads.txt -H "Origin" -d 1 3 -c 10
 
 * specify a custom file to save the details about sent requests (instead of the default file which is %s)
-$ pegaxss.py urls.txt -p payloads.txt -H "Origin" -l "custom_datafile.json" 
----------------------------------------------------------------------- 
+$ pegaxss.py urls.txt -p payloads.txt -H "Origin" -l "custom_datafile.json"
+----------------------------------------------------------------------
 """%(DEFAULT_LOCAL_DATAFILE)
 
 def get_args():
@@ -182,7 +184,7 @@ def read_headers_from_file():
     for w in words:
       inner_arr.append(w)
     header_rows.append(inner_arr)
-  return header_rows  
+  return header_rows
 
 
 
@@ -193,9 +195,9 @@ def get_local_datafile():
     return DEFAULT_LOCAL_DATAFILE
 
 def get_min_max_delay():
-  if not args.d or len(args.d)!=2: 
+  if not args.d or len(args.d)!=2:
     args.d=[2,4]
-  return list(int(a) for a in args.d)  
+  return list(int(a) for a in args.d)
 
 
 
@@ -254,12 +256,12 @@ def mainop(url):
     for payload in payloads:
         delay=get_delay_seconds()
         time.sleep(delay)
-        try: 
+        try:
           req=create_request(url,headers,payload)
         except Exception as e:
           err("%s - Err occurde while creating request"%url)
           err(str(e))
-        
+
         if len(req.header_items()) <=0:
           warn("Don't have any headers to send. Aborting request of url.")
         else:
@@ -298,7 +300,7 @@ def main():
   if not all_args_ok():
     return
   assign_vals_to_globals()
-  
+
   procs=min(abs(int(args.c)), len(urls)) or 1
   sigint_handler=signal.signal(signal.SIGINT,signal.SIG_IGN)
   pool=multiprocessing.Pool(processes=procs)
@@ -314,7 +316,7 @@ def main():
     pool.close()
     pass
   pool.close()
-  
+
 def print_starting_msg(procs):
   avg_delay=compute_avg_delay()
   est_total_time_sec=len(urls)*(avg_delay+1)*len(payloads)*len(header_rows)/procs
@@ -327,10 +329,10 @@ def print_starting_msg(procs):
 
   cprint("ESTIMATED COMPLETION TIME: %s"%est_total_time,"green","on_white",attrs=["bold","dark","reverse"])
   cprint("DETAILS ","grey","on_white",attrs=["bold","dark","reverse"])
-  msg="""Urls: %d 
-Avg Delay Between Requests(seconds): %.1f 
+  msg="""Urls: %d
+Avg Delay Between Requests(seconds): %.1f
 Concurent Procs: %d
-Payloads: %d 
+Payloads: %d
 Header Rows: %d
 Total requests per URL: %d
 Total requests (ALL): %d""" %(len(urls),avg_delay,procs,len(payloads), len(header_rows),total_requests_per_url,total_requests_to_be_made)
