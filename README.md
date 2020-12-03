@@ -1,3 +1,4 @@
+![example](./docs/recorded.svg)
 
 # Description: 
 For each url make a number of requests equal to the number of payloads supplied multiplied by header rows supplied (if the headers are passid directly instead of a file then it counts as one row).
