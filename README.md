@@ -1,6 +1,18 @@
 
 # Description: 
-For each url make a number of requests equal to the number of payloads supplied multiplied by header rows supplied (if the headers are passid directly instead of a file then it counts as one row). During each request the specific payload is assigned to the headers in the header row. 
+For each url make a number of requests equal to the number of payloads supplied multiplied by header rows supplied (if the headers are passid directly instead of a file then it counts as one row).
+
+
+
+During each request the specific payload is assigned to the headers in the header row. 
+
+
+
+All sent requests are saved in a local .json file (so you can grep them later for your reports, should the need arise).
+
+
+
+I reccommend using xsshunter.com to generate your payloads.
 
 ```
 For each URL:
@@ -14,6 +26,10 @@ For each URL:
 git clone https://github.com/truffle-dog/pegaxss
 cd pegaxss
 pip install -r requirements.txt
+```
+Additionally add pegaxss.py to your .bashrc so you can use it system wide. You need to have a 'bin' folder in your home folder (or create another dir where you'd like to keep your executables and soft link it there).
+```
+ln -s $PWD/pegaxss.py ~/bin/pegaxss.py
 ```
 
 
@@ -69,3 +85,7 @@ Origin Referer
 
 
 `$ pegaxss.py urls.txt -p payloads.txt -H "Origin" -l "custom_datafile.json"`
+
+# Disclaimer
+This tool was made for legal usage in bug bounty pentests. 
+Use responsibly and at your own risk and on websites where you have permission. The author declines any responsibility for how this tool is used. 
