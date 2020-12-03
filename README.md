@@ -3,8 +3,17 @@
 For each url make a number of requests equal to the number of payloads supplied multiplied by header rows supplied (if the headers are passid directly instead of a file then it counts as one row). During each request the specific payload is assigned to the headers in the header row. 
 
 For each URL:
+
+
+
   For each payload:
+
+
+
     For each header row:
+
+
+
       Assign payload to headers in current header row and perform request.
 
 # Example usage:
