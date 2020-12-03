@@ -47,7 +47,6 @@ Example: headers.txt
 ```
 Origin
 Origin Referer
-...
 ```
 
 * specify custom delay and concurency level (number of processes)
