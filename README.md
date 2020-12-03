@@ -54,10 +54,13 @@ ln -s $PWD/pegaxss.py ~/bin/pegaxss.py
 
 
 
+In the example below we are infecting header "Origin" with payload (first row) and then headers "Origin" and "Referer" with payload (second row).
+
+
+
 
 
 `$ pegaxss.py urls.txt -p payloads.txt -H headers.txt`
-
 
 
 
