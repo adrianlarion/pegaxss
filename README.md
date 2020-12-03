@@ -9,6 +9,12 @@ For each URL:
       Assign payload to headers in current header row and perform request.
 ```
 
+# Install 
+```
+git clone https://github.com/truffle-dog/pegaxss
+cd pegaxss
+pip install -r requirements.txt
+```
 
 
 
