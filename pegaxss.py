@@ -49,12 +49,11 @@ ASCII=r"""
 ----------------------------------------------------------------------
 PEGAXSS - Magic Header Blind Xss Tool
 ----------------------------------------------------------------------
-https://github.com/truffle-dog
-https://twitter.com/truffledog6
+Made with love and fun by Adrian Scheff
 ----------------------------------------------------------------------
-Do you need kickass security tools? Or security consulting?
-Or just want to exchange ideas?
-Contact me on twitter: @truffledog6 (twitter.com/truffledog6)
+github.com/adrianscheff
+adrianscheff.com
+twitter.com/adrianscheff
 ----------------------------------------------------------------------
 """
 
